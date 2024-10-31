@@ -1,0 +1,65 @@
+<div class= "container-fluid">
+    <h1>Registration</h1>
+    <form #userForm="ngForm">
+        <div class="form-group">
+            <label>Username</label>
+            <input type="text" required minlength="4" name="username"
+            class="form-control" #username="ngModel" [(ngModel)]= "newperson.username"
+            [class.is-invalid]= "username.invalid && username.touched"
+            >
+            <small class="text-danger" [class.d-none]= "username.valid || username.untouched">Required / Must be at least 5 characters</small>
+        </div>
+
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" name="password" required minlength="4"
+            #password="ngModel" [(ngModel)]= "newperson.password" 
+            [class.is-invalid]= "password.invalid && password.touched"
+            class="form-control"
+            >
+            <small class="text-danger" [class.d-none]= "password.valid || password.untouched">Required / Must be at least 4 characters</small>
+        </div>
+
+        <div class="ngForm">
+            <label>Confirm Password</label>
+            <input type="password" name="confirmPassword" required minlength="4"
+            class="form-control" #confirmPassord="ngModel" [(ngModel)]= "newperson.confirmPassword"
+            [class.is-invalid]= "confirmPassord.invalid && confirmPassord.touched"
+            >
+            <small class="text-danger" [class.d-none]= "confirmPassord.valid || confirmPassord.untouched">Required / Must be at least 4 characters</small>
+        </div>
+
+        <div class="form-group">
+            <label>City</label>
+            <input type="text" name="city" #city="ngModel"
+            class="form-control" [(ngModel)]= "newperson.city"
+            >
+        </div>
+        <div class="form-group">
+            <label>State</label>
+            <input type="text" name="state" #state="ngModel"
+            class="form-control" [(ngModel)]= "newperson.state"
+            >
+        </div>
+        <div class="form-group">
+            <label>Postal Code</label>
+            <input type="text" name="postalCode" #postalCode="ngModel"
+            class="form-control" [(ngModel)]= "newperson.postalCode"
+            >
+        </div>
+        <button (click)="addPerson()" type="submit">Register</button>
+    </form>
+
+    <div>
+        <ul>
+            <li *ngFor= "let person of people">
+                {{person.username}}
+                {{person.password}}
+                {{person.confirmPassword}}
+                {{person.city}}
+                {{person.state}}
+                {{person.postalCode}}
+            </li>
+        </ul>
+      </div>
+</div>
