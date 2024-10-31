@@ -30,4 +30,15 @@ export class PersonComponent {
       postalCode: 0
     }
   }
+  addAPI(){
+    this.newperson={
+      username: 'luka',
+      password: 'shigma',
+      confirmPassword: 'ara',
+      address: 'yourmom',
+      city: 'sigmaland',
+      state: 'volki',
+      postalCode: 4100
+    }
+  }
 }

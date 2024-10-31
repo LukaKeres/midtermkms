@@ -1,4 +1,5 @@
 export interface Person {
+    [x: string]: any;
     username: String,
     password: String,
     confirmPassword: String,
